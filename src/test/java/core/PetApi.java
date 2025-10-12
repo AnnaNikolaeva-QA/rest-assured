@@ -14,34 +14,43 @@ public class PetApi extends BaseApi {
     private final ArrayList<String> statusPets = new ArrayList<>(List.of("available", "pending", "sold"));
 
     public Response getById(int id, int expectResponseCode) {
-        return given().spec(req.basePath(endPoint))
-                .log().all()
-                .when().get("/{petId}", id)
-                .then().log().all()
-                .statusCode(expectResponseCode)
-                .contentType(ContentType.JSON)
-                .body(
+        return given()
+                    .spec(req.basePath(endPoint))
+                    .log().all()
+                .when()
+                    .get("/{petId}", id)
+                .then()
+                    .log().all()
+                    .statusCode(expectResponseCode)
+                    .contentType(ContentType.JSON)
+                    .body(
                         "id", equalTo(id),
                         "status", isIn(statusPets)
-                )
+                    )
                 .extract().response();
     }
 
     public Response getById(String idStr, int expectResponseCode) {
-        return given().spec(req.basePath(endPoint))
-                .when().get("/{petId}", idStr)
-                .then().log().all()
-                .statusCode(expectResponseCode)
-                .extract().response();
+        return given()
+                    .spec(req.basePath(endPoint))
+                .when()
+                    .get("/{petId}", idStr)
+                .then()
+                    .log().all()
+                    .statusCode(expectResponseCode)
+                    .extract().response();
     }
 
     public ValidatableResponse addNewPet(Object body, int expectResponseCode) {
-        return given().spec(req.basePath(endPoint))
-                .contentType(ContentType.JSON)
-                .log().all()
-                .body(body)
-                .log().all()
-                .when().post()
-                .then().statusCode(expectResponseCode);
+        return given()
+                    .spec(req.basePath(endPoint))
+                    .contentType(ContentType.JSON)
+                    .log().all()
+                    .body(body)
+                    .log().all()
+                .when()
+                    .post()
+                .then()
+                    .statusCode(expectResponseCode);
     }
 }
