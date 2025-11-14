@@ -12,10 +12,11 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <testng.version>7.11.0</testng.version>
         <selenide.version>7.10.0</selenide.version>
+        <unit-jupiter.version>5.13.4</unit-jupiter.version>
         <assertj-core.version>3.27.3</assertj-core.version>
         <rest-assured.version>5.5.2</rest-assured.version>
+        <json-schema-validator.version>5.4.0</json-schema-validator.version>
         <lombok.version>1.18.38</lombok.version>
         <jackson-databind.version>2.17.2</jackson-databind.version>
     </properties>
@@ -27,9 +28,21 @@
             <version>${selenide.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>${testng.version}</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${unit-jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${unit-jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>${unit-jupiter.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -43,6 +56,11 @@
             <artifactId>rest-assured</artifactId>
             <version>${rest-assured.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <version>${json-schema-validator.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
