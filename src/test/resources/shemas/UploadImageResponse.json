@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "Pet",
+  "type": "object",
+  "$comment": "ниже строка значит - строгое совпадение полей, если вернёт лишнее, то тест упадёт",
+  "additionalProperties": false,
+  "required": [
+    "code",
+    "type",
+    "message"
+  ],
+  "properties": {
+    "code": {
+      "type": "integer"
+    },
+    "type": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    }
+  }
+}

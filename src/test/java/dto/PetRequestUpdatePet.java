@@ -6,7 +6,7 @@ import java.util.List;
 
 @Value
 @Builder
-public class PetRequest {
+public class PetRequestUpdatePet {
     Integer id;
     Category category;
     String name;
